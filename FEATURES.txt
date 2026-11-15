@@ -1,0 +1,98 @@
+SCOOVER – FUNKTIONSÜBERSICHT
+Stand: 2026-11-14
+
+Wartungsregel:
+Bei jedem neuen oder wesentlich geänderten Website-Feature diese Datei im selben
+Änderungsschritt aktualisieren. Die Funktion kurz beschreiben und ihre Position
+anhand ihres Nutzens für die Hauptaufgabe der Website neu bewerten.
+
+PRIORITÄT 1 – Zentrale Funktionen
+
+1. Daten importieren und verwalten
+   - Mehrere JSON-, JSONL/NDJSON- und CSV-Dateien auswählen oder per Drag-and-drop
+     importieren; Upload-Fortschritt und verständliche Fehlermeldungen.
+   - Upload-Limit: 300 MB pro Datei. Datensätze und Beiträge werden lokal in SQLite
+     gespeichert und bleiben nach einem Serverneustart erhalten.
+   - Einzelne Datensätze sowie alle Datensätze oder alle Projekte können gelöscht
+     werden; Sammellöschungen erfordern eine Bestätigung.
+
+2. Gefilterte Medienanalyse
+   - Kennzahlen zu Beiträgen, Pro-/Contra-Anteilen und potenzieller Reichweite.
+   - Zeitverlauf positiver und negativer Beiträge; Zeitraum über zwei Regler
+     auswählbar. „Gesamter Zeitraum“ schließt undatierte Beiträge ein.
+   - Analysefilter für Datensätze, Thema, Projekte, Ausrichtung und Zeitraum.
+   - Reichweite wird je Website nur mit deren höchstem Wert berücksichtigt, um
+     offensichtliche Mehrfachzählungen zu vermeiden.
+
+3. Medienbeiträge finden und prüfen
+   - Beiträge durchsuchen, nach Medientyp und Ausrichtung filtern sowie nach Datum,
+     Reichweite, Quelle oder Titel sortieren.
+   - Beiträge schrittweise nachladen; ein Beitrag zeigt Quelle, Text, Metadaten,
+     Ausrichtung und gegebenenfalls den importierten Begründungstext.
+   - Quellenprüfung bewertet einzelne Aussagen anhand hinterlegter Projektquellen.
+     In der geschlossenen Beitragsansicht erscheint eine knappe Mehrheitsanzeige;
+     aufgeklappt sind Einzelurteile und Begründungen sichtbar.
+   - Die Quellenprüfung läuft im Hintergrund, aktualisiert sich automatisch und
+     unterscheidet stützende, widersprechende und nicht eindeutige Belege.
+     Das lokale ML-Modell ist optional; Fehler oder fehlende Quellen werden angezeigt.
+
+PRIORITÄT 2 – Analyse und Auswertung
+
+4. Projekte und Referenzquellen
+   - Projekte anlegen, Datensätze zuordnen und HTTPS-Referenzlinks verwalten.
+   - Mehrere freie Datensätze können einem Projekt hinzugefügt werden; jeder
+     Datensatz gehört höchstens einem Projekt.
+   - Projektlinks dienen der Quellenprüfung. Fehlende Projektangaben können ergänzt
+     werden, ohne vorhandene Beitragsangaben zu überschreiben.
+   - Ältere Datensätze können anhand einheitlicher vorhandener Projektangaben
+     automatisch einem passenden bestehenden Projekt zugeordnet werden.
+
+5. Projekte vergleichen
+   - Zwei Projekte in einer Vergleichsansicht gegenüberstellen und Kennzahlen bzw.
+     Ausrichtungen miteinander vergleichen.
+   - Projektfilter und Vergleichsauswahl werden aus den vorhandenen Projekten
+     gespeist.
+
+6. Begriffsmuster erkunden
+   - Häufige Begriffe positiver und negativer Beiträge anzeigen; ein Begriff kann
+     als Filter für die Beitragsliste verwendet werden.
+   - Die Auswertung nutzt bis zu 2.500 neueste Beiträge je Ausrichtung.
+     Begriffsmuster sind keine automatisch geprüften Argumente.
+
+7. Daten exportieren
+   - Die aktuelle Auswahl als CSV herunterladen, einschließlich Datum, Titel,
+     Quelle, URL, Medientyp, Ausrichtung, Grund, Reichweite, Interaktionen,
+     Projekt, Sprache und Inhalt.
+   - Such- und Anzeigefilter der Beitragsliste gelten auch für den Export.
+
+PRIORITÄT 3 – Bedienung und Darstellung
+
+8. Dashboard anpassen
+   - In einer Bearbeitungsansicht Widgets mit Richtungspfeilen neu anordnen,
+     per Button ein- oder ausblenden und halb- bzw. vollbreit darstellen.
+     Überschrift, Hintergrundbild und Filter bleiben fest.
+   - „Weitere Optionen“ bietet kompakte oder komfortable Abstände, zwei oder vier
+     Kennzahlen pro Zeile sowie fünf, zehn oder zwanzig Beiträge pro Seite.
+   - Einstellungen werden lokal im Browser gespeichert; Standardwerte können
+     wiederhergestellt werden.
+
+9. Navigation und Darstellung
+   - Navigation zu Resonanz, Argumenten, Vergleichen, Beiträgen und Datenverwaltung;
+     Vorschauen informieren über die jeweiligen Bereiche.
+   - Responsive Dashboard-Oberfläche mit Sprachwahl (Deutsch, Englisch,
+     Französisch, Hindi und Schwäbisch).
+   - Kennzahlen, Diagramme, Filter, Verwaltung und Navigation nutzen ein
+     einheitliches, zurückhaltendes Frosted-Glass-Design.
+
+10. Lokal und datenschutzfreundlich
+    - Das Backend läuft lokal, bindet ausschließlich an 127.0.0.1 und speichert
+      Daten in einer SQLite-Datenbank im Projektordner.
+    - Die optionale semantische Quellenbewertung verwendet lokal installierte
+      Modelle; Projektquellen werden dafür nicht an einen externen KI-Dienst
+      gesendet.
+    - Startskripte unterstützen Serverstart und -steuerung; bei belegtem Port 8765
+      wird ein freier Folgeport verwendet.
+
+NICHT ALS AKTUELLES FEATURE AUFFÜHREN
+- Automatische Prognosen sind noch nicht implementiert.
+- Die Verwaltung von Webquellen ist nicht mehr Teil der Dashboard-Oberfläche.
